@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="sign in.css">
+    <script src="sign in.js"> </script>
+    <title>Document</title>
+</head>
+<body>
+    <section>
+  
+        <div class="box" >
+          
+          <div class="square" style="--i:0;"></div>
+          <div class="square" style="--i:1;"></div>
+          <div class="square" style="--i:2;"></div>
+          <div class="square" style="--i:3;"></div>
+          <div class="square" style="--i:4;"></div>
+          <div class="square" style="--i:5;"></div>
+          
+         <div class="container" style="width: 90%;"> 
+          <div class="form"> 
+            <h2>Sign Up to VSG</h2>
+            <form action=" https://sheetdb.io/api/v1/rtlayjabw2sja" method="post" id="index1"   class="form">
+              <div class="inputBx" style="margin-bottom: 5px; ;">
+                <input type="text" required="required" style="border-radius: 40px " name="data[username]">
+                <span>Username</span>
+                <i class="fas fa-user-circle"></i>
+              </div>
+              <div class="inputBx" style="margin-bottom: 5px; ;">
+                <input type="email" required="required" style="border-radius: 40px " name="data[email]">
+                <span>Email</span>
+                <i class="fas fa-user-circle"></i>
+              </div>
+              <div class="inputBx password" style="margin-bottom: 5px; ;">
+                <input id="password-input" type="password"  required="required" name="data[password]" style="border-radius: 40px ">
+                <span>Password</span>
+                <a href="#" class="password-control" onclick="return show_hide_password(this);"></a>
+                <i class="fas fa-key"></i>
+              </div>
+              <div class="inputBx password" style="margin-bottom: 10px; ;">
+                <input id="password-input" type="password" name="data[confirmpassword]" required="required" style="border-radius: 40px ">
+                <span>Confirm Password</span>
+                <a href="#" class="password-control" onclick="return show_hide_password(this);"></a>
+                <i class="fas fa-key"></i>
+              </div>
+              
+              
+              <div class="inputBx" >
+                <input type="submit" value="Sign in"  style="border-radius: 10px ; margin-bottom: 10px; height: 30px; width: 60px;"> 
+
+              </div>
+            </form>
+            
+            <p>Have an account <a href="sig in.html">Sign in</a></p>
+          </div>
+        </div>
+          
+        </div>
+      </section>
+<script>
+      var form = document.getElementById('index1');
+      form.addEventListener("submit", e => {
+        e.preventDefault();
+        fetch(form.action, {
+            method : "POST",
+            body: new FormData(document.getElementById("index1")),
+        }).then(
+            response => response.json()
+        ).then((html) => {
+              // you can put any JS code here
+              window.open('index.html', '_blank');
+              alert("you are signed up for virtual study group")
+  
+        });
+      });
+      </script>
+</body>
+</html>
